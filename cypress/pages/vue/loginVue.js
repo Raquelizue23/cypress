@@ -5,11 +5,7 @@ class loginVue {
   }
 
   verifySite() {
-    cy.url().then((url) => {
-      const currentURL = url;
-      if (currentURL == this.url) cy.log(true);
-      else cy.log(false);
-    });
+    cy.url().should("eq", this.url);
   }
 
   setValueEmail(value) {

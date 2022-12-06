@@ -3,13 +3,15 @@ class clientesVue {
     cy.visit("http://localhost:8080/#/clientsPage");
   }
 
-  getLengthRowsTable() {
+  verifyLengthRowsTablaClientes(rows) {
     cy.get("table[class='q-table'] tbody")
       .children()
       .then((childs) => {
-        cy.log(childs);
-        cy.log("Número de filas en la tabla: " + childs.length);
-        console.log(childs.length);
+        assert.equal(
+          childs.length,
+          rows,
+          "Elementos encontrados en la tabla TablaClientes"
+        );
       });
   }
   setValueSearchClients(value) {
