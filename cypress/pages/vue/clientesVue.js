@@ -2,6 +2,16 @@ class clientesVue {
   goToSite() {
     cy.visit("http://localhost:8080/#/clientsPage");
   }
+
+  getLengthRowsTable() {
+    cy.get("table[class='q-table'] tbody")
+      .children()
+      .then((childs) => {
+        cy.log(childs);
+        cy.log("Número de filas en la tabla: " + childs.length);
+        console.log(childs.length);
+      });
+  }
   setValueSearchClients(value) {
     cy.get("input[aria-page-object='SearchClients']").type(value);
   }

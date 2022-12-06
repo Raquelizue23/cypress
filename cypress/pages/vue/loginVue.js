@@ -1,9 +1,9 @@
 class loginVue {
   url = "http://localhost:8080/#/auth";
-  //constante url=http://localhost:8080/#/auth
   goToSite() {
     cy.visit(this.url);
   }
+
   verifySite() {
     cy.url().then((url) => {
       const currentURL = url;
@@ -11,12 +11,13 @@ class loginVue {
       else cy.log(false);
     });
   }
+
   setValueEmail(value) {
     cy.get("input[aria-page-object='email']").type(value);
   }
 
   getValueEmail() {
-    cy.get("[aria-page-object='email']")
+    cy.get("input[aria-page-object='email']")
       .invoke("val")
       .then((value) => {
         cy.log(value);
@@ -32,7 +33,7 @@ class loginVue {
   }
 
   getValuePassword() {
-    cy.get("[aria-page-object='password']")
+    cy.get("input[aria-page-object='password']")
       .invoke("val")
       .then((value) => {
         cy.log(value);
@@ -43,16 +44,32 @@ class loginVue {
     cy.get("input[aria-page-object='password']").clear();
   }
 
-  clickLoginSubmit() {
-    cy.get("button[aria-page-object='LoginSubmit']").click();
-  }
-
   clickBotonMenu() {
     cy.get("button[aria-page-object='BotonMenu']").click();
   }
 
+  clickLoginSubmit() {
+    cy.get("button[aria-page-object='LoginSubmit']").click();
+  }
+
+  clickIniciaSesionMenu() {
+    cy.get("a[aria-page-object='IniciaSesionMenu']").click();
+  }
+
+  clickLinkInicio() {
+    cy.get("a[aria-page-object='LinkInicio']").click();
+  }
+
   clickLinkClients() {
     cy.get("a[aria-page-object='LinkClients']").click();
+  }
+
+  clickLinkCatSociedades() {
+    cy.get("a[aria-page-object='LinkCatSociedades']").click();
+  }
+
+  clickLinkPruebas() {
+    cy.get("a[aria-page-object='LinkPruebas']").click();
   }
 }
 export default loginVue;

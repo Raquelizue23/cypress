@@ -29,12 +29,14 @@ describe("Prueba de Vue", () => {
     inicio.clickLinkClients();
   });
 
-  // it("Probar pantalla de clientes", () => {
-  //   // clientes.setValueSearchClients("Adolf");
-  //   // clientes.clickAgregarCliente();
-  //   //clientes.clickBtnEditASDF4321();
-  //   clientes.clickBtnDeleteASDF4321();
-  // });
+  it("Probar pantalla de clientes", () => {
+    // clientes.getLengthRowsTable();
+    clientes.setValueSearchClients("Adol");
+    clientes.getLengthRowsTable();
+    // clientes.clickAgregarCliente();
+    //clientes.clickBtnEditASDF4321();
+    // clientes.clickBtnDeleteASDF4321();
+  });
 
   // it("Probar borrar cliente", () => {
   //   //borrarCliente.clickCancelBorrar();
@@ -52,16 +54,18 @@ describe("Prueba de Vue", () => {
   //   editarCliente.clickEditar();
   // });
 
-  // it("Probar agregar cliente", () => {
-  //   agregarCliente.setValueUUIDCliente("ASDF4321");
-  //   agregarCliente.setValueNombreCliente("Adolfo Solir de Fortuna");
-  //   agregarCliente.setValueFechaCliente("2022/12/01");
-  //   agregarCliente.setValueHoraCliente("15:30");
-  //   agregarCliente.setValueFechaHora("2022-12-01 12:30");
-  //   agregarCliente.setValueDescripcion("Descripción de Adolfo");
-  //   agregarCliente.setValueTarifa("8");
-  //   agregarCliente.setValueHorasLinea("24");
-  //   agregarCliente.setValueNcColaborador("12");
-  //   agregarCliente.clickGuardar();
-  // });
+  it("Probar agregar cliente", () => {
+    // agregarCliente.setValueUUIDCliente("ASDF4321");
+    // agregarCliente.setValueNombreCliente("Adolfo Solir de Fortuna");
+    // agregarCliente.setValueFechaCliente("2022/12/01");
+    // agregarCliente.setValueHoraCliente("15:30");
+    // agregarCliente.setValueFechaHora("2022-12-01 12:30");
+    // agregarCliente.setValueDescripcion("Descripción de Adolfo");
+    // agregarCliente.setValueTarifa("8");
+    // agregarCliente.setValueHorasLinea("24");
+    // agregarCliente.setValueNcColaborador("12");
+    // agregarCliente.clickGuardar();
+    // clientes.setValueSearchClients("Rene");
+    // clientes.getLengthRowsTable();
+  });
 });
