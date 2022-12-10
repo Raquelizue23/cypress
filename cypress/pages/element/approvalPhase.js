@@ -6,24 +6,6 @@ class ApprovalPhase {
     return cy.contains("td", content);
   }
 
-  clickPaginationRight() {
-    cy.get(
-      '[name="TablePaginationRight"] > .MuiToolbar-root > .makeStyles-flex-1 > :nth-child(2) > .MuiIconButton-label > .MuiSvgIcon-root'
-    ).click();
-  }
-
-  clickEditar() {
-    cy.get(
-      '[style="position: fixed; z-index: 1300; inset: 0px;"] > .MuiPaper-root > .MuiList-root > :nth-child(2) > .MuiButtonBase-root'
-    ).click();
-  }
-
-  clickEliminar() {
-    cy.get(
-      '[style="position: fixed; z-index: 1300; inset: 0px;"] > .MuiPaper-root > .MuiList-root > [tabindex="0"] > .MuiButtonBase-root'
-    ).click();
-  }
-
   goToSite() {
     // cy.visit(this.url);
     cy.removeLocalStorage("persist:session");
