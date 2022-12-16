@@ -21,43 +21,39 @@ describe("Prueba de Vue", () => {
 
   it("Probar ApprovalPhase", () => {
     apprvalPhase.goToSite();
-    apprvalPhase.clickBtnNewApprovalPhase();
+    // apprvalPhase.clickBtnNewApprovalPhase();
 
-    newApprovalPhase.clearApprvlPhaseId();
-    newApprovalPhase.setValueApprvlPhaseId(25);
-    newApprovalPhase.setValueApprvlActionDesc("Ejemplo desde Cypress");
-    newApprovalPhase.setValueApprvlPhaseDesc("ticketClosing");
-    newApprovalPhase.setValuePhaseSlaHrs(4);
-    newApprovalPhase.clickBtnSubmit();
+    // newApprovalPhase.clearApprvlPhaseId();
+    // newApprovalPhase.setValueApprvlPhaseId(25);
+    // newApprovalPhase.setValueApprvlActionDesc("Ejemplo desde Cypress");
+    // newApprovalPhase.setValueApprvlPhaseDesc("ticketClosing");
+    // newApprovalPhase.setValuePhaseSlaHrs(4);
+    // newApprovalPhase.clickBtnSubmit();
 
     apprvalPhase.setValueTextToFilterWith("Eje");
     apprvalPhase.verifyLengthRowsTableApprovalPhase(1);
     apprvalPhase.clearTextToFilterWith();
+    apprvalPhase.clickNextPage();
+    apprvalPhase.clickNextAllPage();
+    apprvalPhase.clickPrevPage();
+    apprvalPhase.clickPrevAllPage();
+    apprvalPhase.changeRowsPerPage();
 
-    tableMaterialUIElement.clickNextAllPages();
-    tableMaterialUIElement.clickMenuRow("Ejemplo desde Cypress");
-    // tableMaterialUIElement.clickNextPage();
     // tableMaterialUIElement.clickNextAllPages();
-    // tableMaterialUIElement.clickSelectRowsPerPage();
-    //
-    tableMaterialUIElement.clickMenuEditRow();
-    editApprovalPhase.clearApprvlActionDesc();
-    editApprovalPhase.setValueApprvlActionDesc(
-      "Ejemplo de edición desde cypress"
-    );
-    editApprovalPhase.clearPhaseSlaHrs();
-    editApprovalPhase.setValuePhaseSlaHrs(10);
-    editApprovalPhase.clickBtnSubmit();
+    // tableMaterialUIElement.clickMenuRow("Ejemplo desde Cypress");
+    // //
+    // tableMaterialUIElement.clickMenuEditRow();
+    // editApprovalPhase.clearApprvlActionDesc();
+    // editApprovalPhase.setValueApprvlActionDesc(
+    //   "Ejemplo de edición desde cypress"
+    // );
+    // editApprovalPhase.clearPhaseSlaHrs();
+    // editApprovalPhase.setValuePhaseSlaHrs(10);
+    // editApprovalPhase.clickBtnSubmit();
 
-    // // apprvalPhase.clickPaginationRight();
-    // apprvalPhase
-    //   .getElementInTable("Ejemplo de edición desde cypress")
-    //   .prev()
-    //   .click();
-    tableMaterialUIElement.clickMenuRow("Ejemplo de edición desde cypress");
-    tableMaterialUIElement.clickMenuDeleteRow();
-    // apprvalPhase.clickEliminar();
-    deleteApprovalPhase.clickBtnSubmit();
+    // tableMaterialUIElement.clickMenuRow("Ejemplo de edición desde cypress");
+    // tableMaterialUIElement.clickMenuDeleteRow();
+    // deleteApprovalPhase.clickBtnSubmit();
   });
 
   // afterEach(() => {

@@ -3,6 +3,22 @@ class TableMaterialUIElement {
     cy.contains("td", row).prev().click();
   }
 
+  setValueTextToFilterWith(value) {
+    cy.get("input[name='textToFilterWith']").type(value);
+  }
+
+  getValueTextToFilterWith() {
+    cy.get("input[name='textToFilterWith']")
+      .invoke("val")
+      .then((value) => {
+        cy.log(value);
+      });
+  }
+
+  clearTextToFilterWith() {
+    cy.get("input[name='textToFilterWith']").clear();
+  }
+
   clickMenuEditRow() {
     cy.get(
       '[style="position: fixed; z-index: 1300; inset: 0px;"] > .MuiPaper-root > .MuiList-root > :nth-child(2) > .MuiButtonBase-root'
@@ -15,32 +31,53 @@ class TableMaterialUIElement {
     ).click();
   }
 
-  clickNextPage() {
-    cy.get(
-      '[name="TablePaginationRight"] > .MuiToolbar-root > .makeStyles-flex-1 > :nth-child(1) > .MuiIconButton-label > .MuiSvgIcon-root > path'
-    ).click({ force: true });
+  getNextPage(idTable) {
+    return cy.xpath(
+      '//*[@id="' +
+        idTable +
+        '"]/following-sibling::div/div[1]/div[3]/div/div[2]/button[1]/span[2]'
+    );
   }
 
-  clickNextAllPages() {
-    cy.get(
-      '[name="TablePaginationRight"] > .MuiToolbar-root > .makeStyles-flex-1 > :nth-child(2) > .MuiIconButton-label > .MuiSvgIcon-root > path'
-    ).click({ force: true });
+  getNextAllPages(idTable) {
+    return cy.xpath(
+      '//*[@id="' +
+        idTable +
+        '"]/following-sibling::div/div[1]/div[3]/div/div[2]/button[2]/span[2]'
+    );
   }
 
-  clickPrevPage() {
-    cy.get(
-      ":nth-child(1) > .MuiToolbar-root > .makeStyles-flex-1 > :nth-child(2) > .MuiIconButton-label > .MuiSvgIcon-root"
-    ).click({ force: true });
+  getPrevPage(idTable) {
+    return cy.xpath(
+      '//*[@id="' +
+        idTable +
+        '"]/following-sibling::div/div[1]/div[1]/div/div[2]/button[2]'
+    );
   }
 
-  clickPrevAllPages() {
-    cy.get(
-      ":nth-child(1) > .MuiToolbar-root > .makeStyles-flex-1 > :nth-child(1) > .MuiIconButton-label > .MuiSvgIcon-root"
-    ).click({ force: true });
+  getPrevAllPages(idTable) {
+    return cy.xpath(
+      '//*[@id="' +
+        idTable +
+        '"]/following-sibling::div/div[1]/div[1]/div/div[2]/button[1]'
+    );
   }
-  clickSelectRowsPerPage() {
-    cy.get("path[d='M7 10l5 5 5-5z']").click({ force: true });
+
+  getSelectRowsPerPage(idTable) {
+    return cy.xpath(
+      '//*[@id="' +
+        idTable +
+        '"]/following-sibling::div/div[2]/div/div/div/div[2]/input'
+    );
+
+    //*[@id="TableApprovalPhase"]/following-sibling::div/div[2]/div/div/div/div[2]/input
   }
-  selectRowsPerPage(number) {}
+
+  getRecordCount(idTable) {
+    //*[@id="root"]/div[3]/div[1]/div/div[3]/div/div/div[3]/div[1]/div[2]/div/p
+    return cy.xpath(
+      '//*[@id="' + idTable + '"]/following-sibling::div/div[1]/div[2]/div/p'
+    );
+  }
 }
 export default TableMaterialUIElement;

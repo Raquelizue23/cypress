@@ -5,16 +5,16 @@ describe("Prueba Heroku App", () => {
 
   it("Probar input", () => {
     testPageHeroku.goToSite();
-    testPageHeroku.clickSubmitbutton();
-    testPageHeroku.getValueComments();
-    // testPageHeroku.setValueUsername("Hola");
-    // testPageHeroku.getValueUsername();
-    // testPageHeroku.clearUsername();
-    // testPageHeroku.setValuePassword("secret");
-    // testPageHeroku.getValuePassword();
-    // testPageHeroku.clearPassword();
-    // testPageHeroku.clearComments();
-    // testPageHeroku.setValueComments("Hola soy un nuevo comentario");
+    // testPageHeroku.clickSubmitbutton();
+    // testPageHeroku.getValueComments();
+    testPageHeroku.setValueUsername("Hola");
+    testPageHeroku.getValueUsername();
+    testPageHeroku.clearUsername();
+    testPageHeroku.setValuePassword("secret");
+    testPageHeroku.getValuePassword();
+    testPageHeroku.clearPassword();
+    testPageHeroku.clearComments();
+    testPageHeroku.setValueComments("Hola soy un nuevo comentario");
 
     // testPageHeroku.checkCheckboxes0();
     // testPageHeroku.unheckCheckboxes2();
@@ -23,8 +23,8 @@ describe("Prueba Heroku App", () => {
     // testPageHeroku.getItemMultipleselect("Selection Item 1");
     // testPageHeroku.getLengthDropdown();
     // testPageHeroku.selectItemDropdown(5);
-    // testPageHeroku.uploadFilename("ejemploParaSubir.txt");
+    testPageHeroku.uploadFilename("ejemploParaSubir.txt");
     // cy.pause();
-    // testPageHeroku.clickSubmitbutton();
+    testPageHeroku.clickSubmitbutton();
   });
 });
