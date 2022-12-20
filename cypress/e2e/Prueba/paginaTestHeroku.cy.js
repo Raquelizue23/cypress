@@ -22,7 +22,7 @@ describe("Prueba Heroku App", () => {
     // testPageHeroku.getLengthMultipleselect();
     // testPageHeroku.getItemMultipleselect("Selection Item 1");
     // testPageHeroku.getLengthDropdown();
-    // testPageHeroku.selectItemDropdown(5);
+    testPageHeroku.selectItemDropdown(5);
     testPageHeroku.uploadFilename("ejemploParaSubir.txt");
     // cy.pause();
     testPageHeroku.clickSubmitbutton();

@@ -93,11 +93,7 @@ class TestPageHeroku {
   }
 
   clickSubmitbutton() {
-    cy.get("input[name='submitbutton']").click();
-  }
-
-  clickSubmitbutton() {
-    cy.get("input[name='submitbutton']").click();
+    cy.get('[type="submit"]').click();
   }
 
   setValueReportmissingparams(value) {

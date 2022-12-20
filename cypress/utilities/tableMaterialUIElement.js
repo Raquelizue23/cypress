@@ -79,5 +79,20 @@ class TableMaterialUIElement {
       '//*[@id="' + idTable + '"]/following-sibling::div/div[1]/div[2]/div/p'
     );
   }
+
+  verifyLengthRowsTable(idTable, rows) {
+    this.getRecordCount(idTable).then((value) => {
+      const recordCount = value.text();
+      const posicionDe = recordCount.indexOf("e");
+      const numberRows = parseInt(
+        recordCount.substring(posicionDe + 1, recordCount.length)
+      );
+      assert.equal(
+        numberRows,
+        rows,
+        "Elementos encontrados en la tabla TableApprovalPhase"
+      );
+    });
+  }
 }
 export default TableMaterialUIElement;

@@ -4,10 +4,6 @@ class ApprovalPhase {
   url = "http://localhost:3000/CrudApprovalPhase";
   tableMaterialUIElement = new TableMateriaUIElement();
 
-  getElementInTable(content) {
-    return cy.contains("td", content);
-  }
-
   goToSite() {
     // cy.visit(this.url);
     cy.removeLocalStorage("persist:session");
@@ -17,10 +13,6 @@ class ApprovalPhase {
 
   verifySite() {
     cy.url().should("eq", this.url);
-  }
-
-  clickBtnNewApprovalPhase() {
-    cy.get("button[aria-page-object='BtnNewApprovalPhase']").click();
   }
 
   setValueTextToFilterWith(value) {
@@ -39,40 +31,15 @@ class ApprovalPhase {
     cy.get("input[name='textToFilterWith']").clear();
   }
 
-  verifyLengthRowsTableApprovalPhase(rows) {
-    this.tableMaterialUIElement
-      .getRecordCount("TableApprovalPhase")
-      .then((value) => {
-        const recordCount = value.text();
-        const posicionDe = recordCount.indexOf("e");
-        const numberRows = parseInt(
-          recordCount.substring(posicionDe + 1, recordCount.length)
-        );
-        assert.equal(
-          numberRows,
-          rows,
-          "Elementos encontrados en la tabla TableApprovalPhase"
-        );
-      });
-
-    //llmar al metodo que encuentra el regoistro getRecordCount
-    //lo que te devuleva el metodo es lo que comparas contra el rows que llega arrgiba
-    //generas uno de estos por cada table y sacas el id del
-    // cy.get("table[class='MuiTable-root'] tbody")
-    //   .children()
-    //   .then((childs) => {
-    //     assert.equal(
-    //       childs.length,
-    //       rows,
-    //       "Elementos encontrados en la tabla TableApprovalPhase"
-    //     );
-    //   });
+  clickBtnNewApprovalPhase() {
+    cy.get("button[aria-page-object='BtnNewApprovalPhase']").click();
   }
 
-  changeRowsPerPage() {
-    this.tableMaterialUIElement
-      .getSelectRowsPerPage("TableApprovalPhase")
-      .click({ force: true });
+  verifyLengthRowsTableApprovalPhase(rows) {
+    this.tableMaterialUIElement.verifyLengthRowsTable(
+      "TableApprovalPhase",
+      rows
+    );
   }
 
   clickNextPage() {
@@ -97,6 +64,11 @@ class ApprovalPhase {
     this.tableMaterialUIElement
       .getPrevAllPages("TableApprovalPhase")
       .click({ force: true });
+  }
+  getValueMui14253() {
+    cy.get("p[id='mui-14253']").then((value) => {
+      cy.log(value.text());
+    });
   }
 }
 export default ApprovalPhase;

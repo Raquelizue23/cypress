@@ -37,7 +37,6 @@ describe("Prueba de Vue", () => {
     apprvalPhase.clickNextAllPage();
     apprvalPhase.clickPrevPage();
     apprvalPhase.clickPrevAllPage();
-    apprvalPhase.changeRowsPerPage();
 
     // tableMaterialUIElement.clickNextAllPages();
     // tableMaterialUIElement.clickMenuRow("Ejemplo desde Cypress");
