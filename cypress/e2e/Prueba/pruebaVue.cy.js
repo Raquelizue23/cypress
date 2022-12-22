@@ -21,14 +21,6 @@ describe("Prueba de Vue", () => {
     login.clickLoginSubmit();
   });
 
-  // it("Probar Login", () => {
-  //   login.goToSite();
-  //   login.setValueEmail("test@test.com");
-  //   login.setValuePassword("123456");
-  //   login.verifySite();
-  //   login.clickLoginSubmit();
-  // });
-
   it("Probar CRUD", () => {
     inicio.clickBotonMenu();
     inicio.clickLinkClients();
@@ -44,7 +36,7 @@ describe("Prueba de Vue", () => {
     agregarCliente.setValueNcColaborador("12");
     agregarCliente.clickGuardar();
 
-    clientes.verifyLengthRowsTablaClientes(2);
+    clientes.verifyLengthRowsTablaClientes(1);
     clientes.clickBtnEditASDF4321();
     editarCliente.clearDescripcion();
     editarCliente.setValueDescripcion("tercera descripción de Adolfo");

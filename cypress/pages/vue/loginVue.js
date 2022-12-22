@@ -1,5 +1,5 @@
 class loginVue {
-  url = "http://localhost:8080/#/auth";
+  url = "https://crud-firebase-cypress.web.app/spa/#/auth";
   goToSite() {
     cy.visit(this.url);
   }
