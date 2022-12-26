@@ -11,24 +11,16 @@ describe("Prueba de Vue", () => {
   const deleteApprovalPhase = new DeleteApprovalPhase();
   const tableMaterialUIElement = new TableMateriaUIElement();
 
-  // beforeEach(() => {
-  // login.goToSite();
-  // login.verifySite();
-  // login.setValueEmail("test@test.com");
-  // login.setValuePassword("123456");
-  // login.clickLoginSubmit();
-  // });
-
   it("Probar ApprovalPhase", () => {
     apprvalPhase.goToSite();
-    // apprvalPhase.clickBtnNewApprovalPhase();
+    apprvalPhase.clickBtnNewApprovalPhase();
 
-    // newApprovalPhase.clearApprvlPhaseId();
-    // newApprovalPhase.setValueApprvlPhaseId(25);
-    // newApprovalPhase.setValueApprvlActionDesc("Ejemplo desde Cypress");
-    // newApprovalPhase.setValueApprvlPhaseDesc("ticketClosing");
-    // newApprovalPhase.setValuePhaseSlaHrs(4);
-    // newApprovalPhase.clickBtnSubmit();
+    newApprovalPhase.clearApprvlPhaseId();
+    newApprovalPhase.setValueApprvlPhaseId(25);
+    newApprovalPhase.setValueApprvlActionDesc("Ejemplo desde Cypress");
+    newApprovalPhase.setValueApprvlPhaseDesc("ticketClosing");
+    newApprovalPhase.setValuePhaseSlaHrs(4);
+    newApprovalPhase.clickBtnSubmit();
 
     apprvalPhase.setValueTextToFilterWith("Eje");
     apprvalPhase.verifyLengthRowsTableApprovalPhase(1);
@@ -38,24 +30,20 @@ describe("Prueba de Vue", () => {
     apprvalPhase.clickPrevPage();
     apprvalPhase.clickPrevAllPage();
 
-    // tableMaterialUIElement.clickNextAllPages();
-    // tableMaterialUIElement.clickMenuRow("Ejemplo desde Cypress");
-    // //
-    // tableMaterialUIElement.clickMenuEditRow();
-    // editApprovalPhase.clearApprvlActionDesc();
-    // editApprovalPhase.setValueApprvlActionDesc(
-    //   "Ejemplo de edición desde cypress"
-    // );
-    // editApprovalPhase.clearPhaseSlaHrs();
-    // editApprovalPhase.setValuePhaseSlaHrs(10);
-    // editApprovalPhase.clickBtnSubmit();
+    apprvalPhase.clickNextAllPage();
+    tableMaterialUIElement.clickMenuRow("Ejemplo desde Cypress");
+    //
+    tableMaterialUIElement.clickMenuEditRow();
+    editApprovalPhase.clearApprvlActionDesc();
+    editApprovalPhase.setValueApprvlActionDesc(
+      "Ejemplo de edición desde cypress"
+    );
+    editApprovalPhase.clearPhaseSlaHrs();
+    editApprovalPhase.setValuePhaseSlaHrs(10);
+    editApprovalPhase.clickBtnSubmit();
 
-    // tableMaterialUIElement.clickMenuRow("Ejemplo de edición desde cypress");
-    // tableMaterialUIElement.clickMenuDeleteRow();
-    // deleteApprovalPhase.clickBtnSubmit();
+    tableMaterialUIElement.clickMenuRow("Ejemplo de edición desde cypress");
+    tableMaterialUIElement.clickMenuDeleteRow();
+    deleteApprovalPhase.clickBtnSubmit();
   });
-
-  // afterEach(() => {
-  //   cy.setLocalStorage("persist:session", '{"isAuthenticated":"false"}');
-  // });
 });

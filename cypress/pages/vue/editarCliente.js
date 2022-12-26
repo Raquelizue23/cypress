@@ -66,7 +66,7 @@ class editarCliente {
     cy.get("input[aria-page-object='FechaHora']").clear();
   }
 
-  setValueFechaHora(value) {
+  etValueFechaHora(value) {
     cy.get("input[aria-page-object='FechaHora']").type(value);
   }
 
