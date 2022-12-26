@@ -63,23 +63,23 @@ class editarCliente {
   }
 
   clearHoraCliente() {
-    cy.get("input[aria-page-object='HoraCliente']").clear();
+    cy.get("input[aria-page-object='FechaHora']").clear();
   }
 
-  setValueFAf0bc2ce133f4eed94be84610484801e(value) {
-    cy.get("input[id='f_af0bc2ce-133f-4eed-94be-84610484801e']").type(value);
+  setValueFechaHora(value) {
+    cy.get("input[aria-page-object='FechaHora']").type(value);
   }
 
-  getValueFAf0bc2ce133f4eed94be84610484801e() {
-    cy.get("input[id='f_af0bc2ce-133f-4eed-94be-84610484801e']")
+  getValueFechaHora() {
+    cy.get("input[aria-page-object='FechaHora']")
       .invoke("val")
       .then((value) => {
         cy.log(value);
       });
   }
 
-  clearFAf0bc2ce133f4eed94be84610484801e() {
-    cy.get("input[id='f_af0bc2ce-133f-4eed-94be-84610484801e']").clear();
+  clearFechaHora() {
+    cy.get("input[aria-page-object='FechaHora']").clear();
   }
 
   setValueTarifa(value) {
