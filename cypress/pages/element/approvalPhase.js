@@ -37,32 +37,32 @@ class ApprovalPhase {
 
   verifyLengthRowsTableApprovalPhase(rows) {
     this.tableMaterialUIElement.verifyLengthRowsTable(
-      "TableApprovalPhase",
+      "TableContainerElement",
       rows
     );
   }
 
   clickNextPage() {
     this.tableMaterialUIElement
-      .getNextPage("TableApprovalPhase")
+      .getNextPage("TableContainerElement")
       .click({ force: true });
   }
 
   clickNextAllPage() {
     this.tableMaterialUIElement
-      .getNextAllPages("TableApprovalPhase")
+      .getNextAllPages("TableContainerElement")
       .click({ force: true });
   }
 
   clickPrevPage() {
     this.tableMaterialUIElement
-      .getPrevPage("TableApprovalPhase")
+      .getPrevPage("TableContainerElement")
       .click({ force: true });
   }
 
   clickPrevAllPage() {
     this.tableMaterialUIElement
-      .getPrevAllPages("TableApprovalPhase")
+      .getPrevAllPages("TableContainerElement")
       .click({ force: true });
   }
   getValueMui14253() {
