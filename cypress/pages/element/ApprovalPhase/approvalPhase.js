@@ -1,11 +1,10 @@
 import "cypress-localstorage-commands";
-import TableMateriaUIElement from "../../utilities/tableMaterialUIElement";
+import TableMateriaUIElement from "../../../utilities/tableMaterialUIElement";
 class ApprovalPhase {
   url = "http://localhost:3000/CrudApprovalPhase";
   tableMaterialUIElement = new TableMateriaUIElement();
 
   goToSite() {
-    // cy.visit(this.url);
     cy.removeLocalStorage("persist:session");
     cy.setLocalStorage("persist:session", '{"isAuthenticated":"true"}');
     cy.visit(this.url);
@@ -32,7 +31,7 @@ class ApprovalPhase {
   }
 
   clickBtnNewApprovalPhase() {
-    cy.get("button[aria-page-object='BtnNewApprovalPhase']").click();
+    cy.get("button[name='BtnNewApprovalPhase']").click();
   }
 
   verifyLengthRowsTableApprovalPhase(rows) {
@@ -64,11 +63,6 @@ class ApprovalPhase {
     this.tableMaterialUIElement
       .getPrevAllPages("TableContainerElement")
       .click({ force: true });
-  }
-  getValueMui14253() {
-    cy.get("p[id='mui-14253']").then((value) => {
-      cy.log(value.text());
-    });
   }
 }
 export default ApprovalPhase;

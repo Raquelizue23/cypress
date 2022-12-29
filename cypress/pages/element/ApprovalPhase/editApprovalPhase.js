@@ -7,23 +7,6 @@ class EditApprovalPhase {
   verifySite() {
     cy.url().should("eq", this.url);
   }
-
-  setValueTextToFilterWith(value) {
-    cy.get("input[name='textToFilterWith']").type(value);
-  }
-
-  getValueTextToFilterWith() {
-    cy.get("input[name='textToFilterWith']")
-      .invoke("val")
-      .then((value) => {
-        cy.log(value);
-      });
-  }
-
-  clearTextToFilterWith() {
-    cy.get("input[name='textToFilterWith']").clear();
-  }
-
   setValueApprvlPhaseId(value) {
     cy.get("input[name='ApprvlPhaseId']").type(value);
   }
@@ -39,7 +22,6 @@ class EditApprovalPhase {
   clearApprvlPhaseId() {
     cy.get("input[name='ApprvlPhaseId']").clear();
   }
-
   setValueApprvlActionDesc(value) {
     cy.get("input[name='ApprvlActionDesc']").type(value);
   }
@@ -55,7 +37,6 @@ class EditApprovalPhase {
   clearApprvlActionDesc() {
     cy.get("input[name='ApprvlActionDesc']").clear();
   }
-
   setValueApprvlPhaseDesc(value) {
     cy.get("input[name='ApprvlPhaseDesc']").type(value);
   }
@@ -71,7 +52,6 @@ class EditApprovalPhase {
   clearApprvlPhaseDesc() {
     cy.get("input[name='ApprvlPhaseDesc']").clear();
   }
-
   setValuePhaseSlaHrs(value) {
     cy.get("input[name='PhaseSlaHrs']").type(value);
   }
@@ -87,23 +67,12 @@ class EditApprovalPhase {
   clearPhaseSlaHrs() {
     cy.get("input[name='PhaseSlaHrs']").clear();
   }
-
-  clickBtnNewApprovalPhase() {
-    cy.get("button[aria-page-object='BtnNewApprovalPhase']").click();
-  }
-
   clickBtnClose() {
     cy.get("button[name='BtnClose']").click();
   }
 
   clickBtnSubmit() {
     cy.get("button[name='BtnSubmit']").click();
-  }
-
-  getValueMui14687() {
-    cy.get("p[id='mui-14687']").then((value) => {
-      cy.log(value.text());
-    });
   }
 }
 export default EditApprovalPhase;

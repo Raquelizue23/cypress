@@ -1,10 +1,10 @@
-import ApprovalPhase from "../../pages/element/approvalPhase";
-import DeleteApprovalPhase from "../../pages/element/deleteApprovalPhase";
-import EditApprovalPhase from "../../pages/element/editApprovalPhase";
-import NewApprovalPhase from "../../pages/element/newApprovalPhase";
+import ApprovalPhase from "../../pages/element/ApprovalPhase/approvalPhase";
+import DeleteApprovalPhase from "../../pages/element/ApprovalPhase/deleteApprovalPhase";
+import EditApprovalPhase from "../../pages/element/ApprovalPhase/editApprovalPhase";
+import NewApprovalPhase from "../../pages/element/ApprovalPhase/newApprovalPhase";
 import TableMateriaUIElement from "../../utilities/tableMaterialUIElement";
 
-describe("Prueba de Vue", () => {
+describe("Prueba de Element", () => {
   const apprvalPhase = new ApprovalPhase();
   const newApprovalPhase = new NewApprovalPhase();
   const editApprovalPhase = new EditApprovalPhase();
