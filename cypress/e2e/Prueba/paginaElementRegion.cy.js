@@ -1,4 +1,4 @@
-import Region from "../../pages/element/Region/Region";
+import Region from "../../pages/element/Region/region";
 import DeleteRegion from "../../pages/element/Region/deleteRegion";
 import EditRegion from "../../pages/element/Region/editRegion";
 import NewRegion from "../../pages/element/Region/newRegion";
@@ -16,26 +16,26 @@ describe("Prueba de Element", () => {
     region.clickBtnNewRegion();
 
     newRegion.clearRegionId();
-    newRegion.setValueRegionId(8);
-    newRegion.setValueRegionCd("EXA_RGN");
-    newRegion.setValueDirNm("Ejemplo de Región");
+    newRegion.setValueRegionId(50);
+    newRegion.setValueRegionCd("Ejemplo RegionCd");
+    newRegion.setValueDirNm("Ejemplo DirNm");
     newRegion.clickBtnSubmit();
 
-    region.setValueTextToFilterWith("EXA");
+    region.setValueTextToFilterWith("Ejemplo");
     region.verifyLengthRowsTableRegion(1);
     region.clearTextToFilterWith();
     region.clickNextAllPage();
 
-    tableMaterialUIElement.clickMenuRow("EXA_RGN");
+    tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
 
-    editRegion.clearRegionCd();
-    editRegion.setValueRegionCd("EXA_RGN_2");
-    editRegion.clearDirNm("");
-    editRegion.setValueDirNm("Ejemplo modificado");
+    newRegion.clearRegionCd();
+    newRegion.setValueRegionCd("Ejemplo modificado RegionCd");
+    newRegion.clearDirNm();
+    newRegion.setValueDirNm("Ejemplo modificado DirNm");
     editRegion.clickBtnSubmit();
 
-    tableMaterialUIElement.clickMenuRow("EXA_RGN_2");
+    tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuDeleteRow();
     deleteRegion.clickBtnSubmit();
   });

@@ -5,44 +5,41 @@ import NewApprovalPhase from "../../pages/element/ApprovalPhase/newApprovalPhase
 import TableMateriaUIElement from "../../utilities/tableMaterialUIElement";
 
 describe("Prueba de Element", () => {
-  const apprvalPhase = new ApprovalPhase();
+  const approvalPhase = new ApprovalPhase();
   const newApprovalPhase = new NewApprovalPhase();
   const editApprovalPhase = new EditApprovalPhase();
   const deleteApprovalPhase = new DeleteApprovalPhase();
   const tableMaterialUIElement = new TableMateriaUIElement();
 
   it("Probar ApprovalPhase", () => {
-    apprvalPhase.goToSite();
-    apprvalPhase.clickBtnNewApprovalPhase();
+    approvalPhase.goToSite();
+    approvalPhase.clickBtnNewApprovalPhase();
 
     newApprovalPhase.clearApprvlPhaseId();
-    newApprovalPhase.setValueApprvlPhaseId(25);
-    newApprovalPhase.setValueApprvlActionDesc("Ejemplo desde Cypress");
+    newApprovalPhase.setValueApprvlPhaseId(50);
+    newApprovalPhase.setValueApprvlActionDesc("Ejemplo ApprvlActionDesc");
     newApprovalPhase.setValueApprvlPhaseDesc("ticketClosing");
-    newApprovalPhase.setValuePhaseSlaHrs(4);
+    newApprovalPhase.clearPhaseSlaHrs();
+    newApprovalPhase.setValuePhaseSlaHrs(50);
     newApprovalPhase.clickBtnSubmit();
 
-    apprvalPhase.setValueTextToFilterWith("Eje");
-    apprvalPhase.verifyLengthRowsTableApprovalPhase(1);
-    apprvalPhase.clearTextToFilterWith();
-    apprvalPhase.clickNextPage();
-    apprvalPhase.clickNextAllPage();
-    apprvalPhase.clickPrevPage();
-    apprvalPhase.clickPrevAllPage();
+    approvalPhase.setValueTextToFilterWith("Ejemplo");
+    approvalPhase.verifyLengthRowsTableApprovalPhase(1);
+    approvalPhase.clearTextToFilterWith();
+    approvalPhase.clickNextAllPage();
 
-    apprvalPhase.clickNextAllPage();
-    tableMaterialUIElement.clickMenuRow("Ejemplo desde Cypress");
-    //
+    tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
-    editApprovalPhase.clearApprvlActionDesc();
-    editApprovalPhase.setValueApprvlActionDesc(
-      "Ejemplo de edición desde cypress"
+
+    newApprovalPhase.clearApprvlActionDesc();
+    newApprovalPhase.setValueApprvlActionDesc(
+      "Ejemplo modificado ApprvlActionDesc"
     );
-    editApprovalPhase.clearPhaseSlaHrs();
-    editApprovalPhase.setValuePhaseSlaHrs(10);
+    newApprovalPhase.clearPhaseSlaHrs();
+    newApprovalPhase.setValuePhaseSlaHrs(100);
     editApprovalPhase.clickBtnSubmit();
 
-    tableMaterialUIElement.clickMenuRow("Ejemplo de edición desde cypress");
+    tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuDeleteRow();
     deleteApprovalPhase.clickBtnSubmit();
   });
