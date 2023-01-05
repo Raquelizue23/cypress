@@ -38,5 +38,12 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuDeleteRow();
     deleteRegion.clickBtnSubmit();
+
+    cy.task("READFROMDB", {
+      dbConfig: Cypress.config("DB"),
+      sql: "select * from core.region",
+    }).then((result) => {
+      console.log(result.rows);
+    });
   });
 });
