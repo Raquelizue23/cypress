@@ -39,11 +39,25 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuDeleteRow();
     deleteRegion.clickBtnSubmit();
 
-    cy.task("READFROMDB", {
+    cy.task("TASKONDB", {
       dbConfig: Cypress.config("DB"),
-      sql: "select * from core.region",
+      sql: "SELECT COUNT(*) FROM core.region",
+    }).then((result) => {
+      cy.log(result.rows[0].count);
+    });
+
+    cy.task("TASKONDB", {
+      dbConfig: Cypress.config("DB"),
+      sql: "DELETE FROM core.region WHERE region_id=50",
     }).then((result) => {
       console.log(result.rows);
+    });
+
+    cy.task("TASKONDB", {
+      dbConfig: Cypress.config("DB"),
+      sql: "SELECT COUNT(*) FROM core.region",
+    }).then((result) => {
+      cy.log(result.rows[0].count);
     });
   });
 });

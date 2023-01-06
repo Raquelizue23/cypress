@@ -6,7 +6,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
-        READFROMDB({ dbConfig, sql }) {
+        TASKONDB({ dbConfig, sql }) {
           const client = new pg.Pool(dbConfig);
           return client.query(sql);
         },
