@@ -7,8 +7,8 @@ describe("Prueba Login PPM", () => {
 
   it("Probar input", () => {
     ppmLog.goToSite();
-    ppmLog.setValueFieldUsername("raquell.martinez");
-    ppmLog.setValueFieldPassword("RqLzM-26");
+    ppmLog.setValueFieldUsername("");
+    ppmLog.setValueFieldPassword("");
     // ppmLog.selectItemFieldLanguage(1);
     ppmLog.checkFieldRememberme0();
     ppmLog.clickLabelLogonSubmitButtonCaption();
