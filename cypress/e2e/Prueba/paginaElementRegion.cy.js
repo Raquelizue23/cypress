@@ -60,4 +60,6 @@ describe("Prueba de Element", () => {
       cy.log(result.rows[0].count);
     });
   });
+
+  //hacer el assert para que compruebe que se elimino un row
 });
