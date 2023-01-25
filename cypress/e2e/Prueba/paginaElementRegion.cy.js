@@ -26,7 +26,7 @@ describe("Prueba de Element", () => {
     region.clearTextToFilterWith();
     region.clickNextAllPage();
 
-    tableMaterialUIElement.clickMenuRow("Ejemplo");
+    tableMaterialUIElement.clickMenuRow("Ejemplo RegionCd");
     tableMaterialUIElement.clickMenuEditRow();
 
     newRegion.clearRegionCd();
