@@ -87,11 +87,7 @@ class TableMaterialUIElement {
       const numberRows = parseInt(
         recordCount.substring(posicionDe + 1, recordCount.length)
       );
-      assert.equal(
-        numberRows,
-        rows,
-        "Elementos encontrados en la tabla TableApprovalPhase"
-      );
+      assert.equal(numberRows, rows, "Elementos encontrados en la tabla");
     });
   }
 }
