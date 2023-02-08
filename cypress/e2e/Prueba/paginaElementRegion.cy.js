@@ -29,10 +29,10 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo RegionCd");
     tableMaterialUIElement.clickMenuEditRow();
 
-    newRegion.clearRegionCd();
-    newRegion.setValueRegionCd("Ejemplo modificado RegionCd");
-    newRegion.clearDirNm();
-    newRegion.setValueDirNm("Ejemplo modificado DirNm");
+    editRegion.clearRegionCd();
+    editRegion.setValueRegionCd("Ejemplo modificado RegionCd");
+    editRegion.clearDirNm();
+    editRegion.setValueDirNm("Ejemplo modificado DirNm");
     editRegion.clickBtnSubmit();
 
     tableMaterialUIElement.clickMenuRow("Ejemplo");
