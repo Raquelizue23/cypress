@@ -31,12 +31,12 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
 
-    newApprovalPhase.clearApprvlActionDesc();
-    newApprovalPhase.setValueApprvlActionDesc(
+    editApprovalPhase.clearApprvlActionDesc();
+    editApprovalPhase.setValueApprvlActionDesc(
       "Ejemplo modificado ApprvlActionDesc"
     );
-    newApprovalPhase.clearPhaseSlaHrs();
-    newApprovalPhase.setValuePhaseSlaHrs(100);
+    editApprovalPhase.clearPhaseSlaHrs();
+    editApprovalPhase.setValuePhaseSlaHrs(100);
     editApprovalPhase.clickBtnSubmit();
 
     tableMaterialUIElement.clickMenuRow("Ejemplo");

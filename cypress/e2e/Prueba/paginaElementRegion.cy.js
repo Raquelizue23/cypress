@@ -22,7 +22,7 @@ describe("Prueba de Element", () => {
     newRegion.clickBtnSubmit();
 
     region.setValueTextToFilterWith("Ejemplo");
-    region.verifyLengthRowsTableRegion(1);
+    region.verifyLengthRowsTableContainerElement(1);
     region.clearTextToFilterWith();
     region.clickNextAllPage();
 

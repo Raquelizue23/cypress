@@ -29,10 +29,10 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
     
-    newRequestDocumentType.clearDocTypDesc();
-    newRequestDocumentType.setValueDocTypDesc("Ejemplo modificado DocTypDesc");
-    newRequestDocumentType.clearDocTypExt();
-    newRequestDocumentType.setValueDocTypExt("Ejemplo modificado DocTypExt");
+    editRequestDocumentType.clearDocTypDesc();
+    editRequestDocumentType.setValueDocTypDesc("Ejemplo modificado DocTypDesc");
+    editRequestDocumentType.clearDocTypExt();
+    editRequestDocumentType.setValueDocTypExt("Ejemplo modificado DocTypExt");
     editRequestDocumentType.clickBtnSubmit();
 
     tableMaterialUIElement.clickMenuRow("Ejemplo");

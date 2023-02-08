@@ -13,8 +13,13 @@ class Region {
     cy.url().should("eq", this.url);
   }
 
+  clickBtnNewRegion() {
+    cy.get("button[name='BtnNewRegion']").click();
+  }
+
   setValueTextToFilterWith(value) {
-    cy.get("input[name='textToFilterWith']").type(value);
+    if (value != "") cy.get("input[name='textToFilterWith']").type(value);
+    else this.clearTextToFilterWith();
   }
 
   getValueTextToFilterWith() {
@@ -29,11 +34,8 @@ class Region {
     cy.get("input[name='textToFilterWith']").clear();
   }
 
-  clickBtnNewRegion() {
-    cy.get("button[name='BtnNewRegion']").click();
-  }
-
-  verifyLengthRowsTableRegion(rows) {
+  tableMaterialUIElement = new TableMateriaUIElement();
+  verifyLengthRowsTableContainerElement(rows) {
     this.tableMaterialUIElement.verifyLengthRowsTable(
       "TableContainerElement",
       rows
@@ -62,6 +64,11 @@ class Region {
     this.tableMaterialUIElement
       .getPrevAllPages("TableContainerElement")
       .click({ force: true });
+  }
+  getValueMui33924() {
+    cy.get("p[id='mui-33924']").then((value) => {
+      cy.log(value.text());
+    });
   }
 }
 export default Region;

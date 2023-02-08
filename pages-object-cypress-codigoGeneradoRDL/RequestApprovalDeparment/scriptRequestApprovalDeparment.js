@@ -28,8 +28,8 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
     
-    newRequestApprovalDeparment.clearDeptNm();
-    newRequestApprovalDeparment.setValueDeptNm("Ejemplo modificado DeptNm");
+    editRequestApprovalDeparment.clearDeptNm();
+    editRequestApprovalDeparment.setValueDeptNm("Ejemplo modificado DeptNm");
     editRequestApprovalDeparment.clickBtnSubmit();
 
     tableMaterialUIElement.clickMenuRow("Ejemplo");

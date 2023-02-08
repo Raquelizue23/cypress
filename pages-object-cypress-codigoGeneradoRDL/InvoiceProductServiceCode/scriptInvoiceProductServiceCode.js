@@ -26,8 +26,8 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
     
-    newInvoiceProductServiceCode.clearInvProdSvcCd();
-    newInvoiceProductServiceCode.setValueInvProdSvcCd("Ejemplo modificado InvProdSvcCd");
+    editInvoiceProductServiceCode.clearInvProdSvcCd();
+    editInvoiceProductServiceCode.setValueInvProdSvcCd("Ejemplo modificado InvProdSvcCd");
     editInvoiceProductServiceCode.clickBtnSubmit();
 
     tableMaterialUIElement.clickMenuRow("Ejemplo");

@@ -36,7 +36,9 @@ describe("Prueba de Vue", () => {
     agregarCliente.setValueNcColaborador("12");
     agregarCliente.clickGuardar();
 
+    clientes.setValueSearchClients("ASDF4321");
     clientes.verifyLengthRowsTablaClientes(1);
+    clientes.clearSearchClients();
     clientes.clickBtnEditASDF4321();
     editarCliente.clearDescripcion();
     editarCliente.setValueDescripcion("tercera descripción de Adolfo");
@@ -51,7 +53,7 @@ describe("Prueba de Vue", () => {
   });
 
   afterEach(() => {
-    cy.wait(5000);
+    cy.wait(6000);
     clientes.clickCerrarSesionMenu();
   });
 });

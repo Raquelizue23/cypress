@@ -29,10 +29,10 @@ describe("Prueba de Element", () => {
     tableMaterialUIElement.clickMenuRow("Ejemplo");
     tableMaterialUIElement.clickMenuEditRow();
     
-    newRequestStatusCode.clearRequestStatDesc();
-    newRequestStatusCode.setValueRequestStatDesc("Ejemplo modificado RequestStatDesc");
-    newRequestStatusCode.clearRptRequestStatDesc();
-    newRequestStatusCode.setValueRptRequestStatDesc("Ejemplo modificado RptRequestStatDesc");
+    editRequestStatusCode.clearRequestStatDesc();
+    editRequestStatusCode.setValueRequestStatDesc("Ejemplo modificado RequestStatDesc");
+    editRequestStatusCode.clearRptRequestStatDesc();
+    editRequestStatusCode.setValueRptRequestStatDesc("Ejemplo modificado RptRequestStatDesc");
     editRequestStatusCode.clickBtnSubmit();
 
     tableMaterialUIElement.clickMenuRow("Ejemplo");
