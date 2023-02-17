@@ -26,11 +26,11 @@ describe("Prueba de Vue", () => {
     inicio.clickLinkClients();
     clientes.clickAgregarCliente();
     agregarCliente.setValueUUIDCliente("ASDF4321");
-    agregarCliente.setValueNombreCliente("Adolfo Solir de Fortuna");
+    agregarCliente.setValueNombreCliente("Adelino Sánchez Fortín");
     agregarCliente.setValueFechaCliente("2022/12/01");
     agregarCliente.setValueHoraCliente("15:30");
     agregarCliente.setValueFechaHora("2022-12-01 12:30");
-    agregarCliente.setValueDescripcion("Descripción de Adolfo");
+    agregarCliente.setValueDescripcion("Descripción de Adelino");
     agregarCliente.setValueTarifa("8");
     agregarCliente.setValueHorasLinea("24");
     agregarCliente.setValueNcColaborador("12");
