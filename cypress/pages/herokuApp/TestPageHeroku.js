@@ -8,6 +8,10 @@ class TestPageHeroku {
     cy.url().should("eq", this.url);
   }
 
+  getFieldUsername() {
+    return cy.get("input[name='username']");
+  }
+
   setValueUsername(value) {
     cy.get("input[name='username']").type(value);
   }
