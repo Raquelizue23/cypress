@@ -1,13 +1,16 @@
 {
-  "scripts": {
-    "cypress": "./node_modules/.bin/cypress open"
-  },
-  "devDependencies": {
-    "cypress-xpath": "^2.0.1"
-  },
-  "dependencies": {
-    "cypress": "^10.11.0",
-    "cypress-localstorage-commands": "^2.2.1",
-    "pg": "^8.8.0"
-  }
+    "scripts": {
+        "cypress": "./node_modules/.bin/cypress open",
+        "ui-regression-allure": "cypress run --browser chrome --spec cypress/e2e/Prueba/**.js --env allure=true",
+        "allure:report": "allure generate allure-results --clean -o allure-report"
+    },
+    "devDependencies": {
+        "@shelex/cypress-allure-plugin": "^2.35.2",
+        "cypress-xpath": "^2.0.1"
+    },
+    "dependencies": {
+        "cypress": "^10.11.0",
+        "cypress-localstorage-commands": "^2.2.1",
+        "pg": "^8.8.0"
+    }
 }

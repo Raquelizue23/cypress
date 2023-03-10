@@ -1,179 +1,208 @@
 class TestPageHeroku {
-  url = "https://testpages.herokuapp.com/styled/basic-html-form-test.html";
-  goToSite() {
-    cy.visit(this.url);
-  }
 
-  verifySite() {
-    cy.url().should("eq", this.url);
-  }
+    url = "https://testpages.herokuapp.com/styled/basic-html-form-test.html";
+    goToSite() {
+        cy.visit(this.url);
+    }
 
-  getFieldUsername() {
-    return cy.get("input[name='username']");
-  }
+    verifySite() {
+        cy.url().should("eq", this.url);
+    }
 
-  setValueUsername(value) {
-    cy.get("input[name='username']").type(value);
-  }
+    setValueUsername(value) {
+        if (value != "")
+            cy.get("input[name='username']").type(value);
+        else this.clearUsername()
+    }
 
-  getValueUsername() {
-    cy.get("input[name='username']")
-      .invoke("val")
-      .then((value) => {
-        cy.log(value);
-      });
-  }
+    getValueUsername() {
+        cy.get("input[name='username']")
+            .invoke("val")
+            .then((value) => {
+                cy.log(value);
+            });
+    }
 
-  clearUsername() {
-    cy.get("input[name='username']").clear();
-  }
+    clearUsername() {
+        cy.get("input[name='username']").clear();
+    }
 
-  setValuePassword(value) {
-    cy.get("input[name='password']").type(value);
-  }
+    getFieldUsername() {
+        return cy.get("input[name='username']");
+    }
 
-  getValuePassword() {
-    cy.get("input[name='password']")
-      .invoke("val")
-      .then((value) => {
-        cy.log(value);
-      });
-  }
+    setValuePassword(value) {
+        if (value != "")
+            cy.get("input[name='password']").type(value);
+        else this.clearPassword()
+    }
 
-  clearPassword() {
-    cy.get("input[name='password']").clear();
-  }
+    getValuePassword() {
+        cy.get("input[name='password']")
+            .invoke("val")
+            .then((value) => {
+                cy.log(value);
+            });
+    }
 
-  uploadFilename(file) {
-    cy.get("input[name='filename']").selectFile(file, { force: true });
-  }
+    clearPassword() {
+        cy.get("input[name='password']").clear();
+    }
 
-  checkCheckboxes() {
-    cy.get("input[name='checkboxes[]']").check();
-  }
+    getFieldPassword() {
+        return cy.get("input[name='password']");
+    }
 
-  uncheckCheckboxes() {
-    cy.get("input[name='checkboxes[]']").uncheck();
-  }
+    uploadFilename(file) {
+        cy.get("input[name='filename']").selectFile(file, { force: true });
+    }
 
-  checkCheckboxes() {
-    cy.get("input[name='checkboxes[]']").check();
-  }
+    checkCheckboxes() {
+        cy.get("input[name='checkboxes[]']").check();
+    }
 
-  uncheckCheckboxes() {
-    cy.get("input[name='checkboxes[]']").uncheck();
-  }
+    uncheckCheckboxes() {
+        cy.get("input[name='checkboxes[]']").uncheck();
+    }
 
-  checkCheckboxes() {
-    cy.get("input[name='checkboxes[]']").check();
-  }
+    checkCheckboxes() {
+        cy.get("input[name='checkboxes[]']").check();
+    }
 
-  uncheckCheckboxes() {
-    cy.get("input[name='checkboxes[]']").uncheck();
-  }
+    uncheckCheckboxes() {
+        cy.get("input[name='checkboxes[]']").uncheck();
+    }
 
-  checkRadioval() {
-    cy.get("input[name='radioval']").check();
-  }
+    checkCheckboxes() {
+        cy.get("input[name='checkboxes[]']").check();
+    }
 
-  uncheckRadioval() {
-    cy.get("input[name='radioval']").uncheck();
-  }
+    uncheckCheckboxes() {
+        cy.get("input[name='checkboxes[]']").uncheck();
+    }
 
-  checkRadioval() {
-    cy.get("input[name='radioval']").check();
-  }
+    checkRadioval() {
+        cy.get("input[name='radioval']").check();
+    }
 
-  uncheckRadioval() {
-    cy.get("input[name='radioval']").uncheck();
-  }
+    uncheckRadioval() {
+        cy.get("input[name='radioval']").uncheck();
+    }
 
-  checkRadioval() {
-    cy.get("input[name='radioval']").check();
-  }
+    checkRadioval() {
+        cy.get("input[name='radioval']").check();
+    }
 
-  uncheckRadioval() {
-    cy.get("input[name='radioval']").uncheck();
-  }
+    uncheckRadioval() {
+        cy.get("input[name='radioval']").uncheck();
+    }
 
-  clickSubmitbutton() {
-    cy.get('[type="submit"]').click();
-  }
+    checkRadioval() {
+        cy.get("input[name='radioval']").check();
+    }
 
-  setValueReportmissingparams(value) {
-    cy.get("input[name='reportmissingparams']").type(value);
-  }
+    uncheckRadioval() {
+        cy.get("input[name='radioval']").uncheck();
+    }
 
-  getValueReportmissingparams() {
-    cy.get("input[name='reportmissingparams']")
-      .invoke("val")
-      .then((value) => {
-        cy.log(value);
-      });
-  }
+    clickSubmitbutton() {
+        cy.get("input[name='submitbutton']").click();
+    }
 
-  clearReportmissingparams() {
-    cy.get("input[name='reportmissingparams']").clear();
-  }
+    clickSubmitbutton() {
+        cy.get("input[name='submitbutton']").click();
+    }
 
-  setValueFormReturn(value) {
-    cy.get("input[name='form_return']").type(value);
-  }
+    setValueReportmissingparams(value) {
+        if (value != "")
+            cy.get("input[name='reportmissingparams']").type(value);
+        else this.clearReportmissingparams()
+    }
 
-  getValueFormReturn() {
-    cy.get("input[name='form_return']")
-      .invoke("val")
-      .then((value) => {
-        cy.log(value);
-      });
-  }
+    getValueReportmissingparams() {
+        cy.get("input[name='reportmissingparams']")
+            .invoke("val")
+            .then((value) => {
+                cy.log(value);
+            });
+    }
 
-  clearFormReturn() {
-    cy.get("input[name='form_return']").clear();
-  }
+    clearReportmissingparams() {
+        cy.get("input[name='reportmissingparams']").clear();
+    }
 
-  setValueComments(value) {
-    cy.get("textarea[name='comments']").type(value);
-  }
+    getFieldReportmissingparams() {
+        return cy.get("input[name='reportmissingparams']");
+    }
 
-  getValueComments() {
-    cy.get("textarea[name='comments']")
-      .invoke("val")
-      .then((value) => {
-        cy.log(value);
-      });
-  }
+    setValueFormReturn(value) {
+        if (value != "")
+            cy.get("input[name='form_return']").type(value);
+        else this.clearFormReturn()
+    }
 
-  clearComments() {
-    cy.get("textarea[name='comments']").clear();
-  }
+    getValueFormReturn() {
+        cy.get("input[name='form_return']")
+            .invoke("val")
+            .then((value) => {
+                cy.log(value);
+            });
+    }
 
-  getLengthMultipleselect() {
-    cy.get("select[name='multipleselect[]']")
-      .children()
-      .then((childs) => {
-        cy.log(childs);
-        cy.log(
-          "Multipleselect tiene un total de " + childs.length + " elemento(s)"
-        );
-      });
-  }
+    clearFormReturn() {
+        cy.get("input[name='form_return']").clear();
+    }
 
-  selectItemMultipleselect(item) {
-    cy.get("select[name='multipleselect[]']").select(item);
-  }
+    getFieldFormReturn() {
+        return cy.get("input[name='form_return']");
+    }
 
-  getLengthDropdown() {
-    cy.get("select[name='dropdown']")
-      .children()
-      .then((childs) => {
-        cy.log(childs);
-        cy.log("Dropdown tiene un total de " + childs.length + " elemento(s)");
-      });
-  }
+    setValueComments(value) {
+        if (value != "")
+            cy.get("textarea[name='comments']").type(value);
+        else this.clearComments()
+    }
 
-  selectItemDropdown(item) {
-    cy.get("select[name='dropdown']").select(item);
-  }
+    getValueComments() {
+        cy.get("textarea[name='comments']")
+            .invoke("val")
+            .then((value) => {
+                cy.log(value);
+            });
+    }
+
+    clearComments() {
+        cy.get("textarea[name='comments']").clear();
+    }
+
+    getFieldComments() {
+        return cy.get("textarea[name='comments']");
+    }
+
+    getLengthMultipleselect() {
+        cy.get("select[name='multipleselect[]']").children().then((childs) => {
+            cy.log(childs);
+            cy.log("Multipleselect tiene un total de " + childs.length + " elemento(s)");
+        });
+
+    }
+
+    selectItemMultipleselect(item) {
+        cy.get("select[name='multipleselect[]']").select(item);
+    }
+
+    getLengthDropdown() {
+        cy.get("select[name='dropdown']").children().then((childs) => {
+            cy.log(childs);
+            cy.log("Dropdown tiene un total de " + childs.length + " elemento(s)");
+        });
+
+    }
+
+    selectItemDropdown(item) {
+        cy.get("select[name='dropdown']").select(item);
+    }
+
+
 }
-export default TestPageHeroku;
+export default TestPageHeroku
