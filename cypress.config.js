@@ -3,7 +3,7 @@ const allureWriter = require("@shelex/cypress-allure-plugin/writer")
 const pg = require("pg");
 
 module.exports = defineConfig({
-    projectId: "pw2j6b",
+    projectId: "4fgpnv",
     e2e: {
         setupNodeEvents(on, config) {
             on("task", {
