@@ -23,7 +23,7 @@ describe("Crear un bug en Jira desde Cypress", () => {
     inicio.clickBotonMenu();
     inicio.clickLinkClients();
     clientes.setValueSearchClients("Fortuna");
-    jiraMethods.createBug("Hola");
+    // jiraMethods.createBug("Hola"); --Este si funciona
     // clientes.verifyLengthRowsTablaClientes(1);
 
     // Cypress.on("fail", (error, runnable) => {

@@ -1,3 +1,5 @@
+import { log } from "console";
+
 class TableMaterialUIElement {
   clickMenuRow(row) {
     cy.contains("td", row).prev().click();
@@ -89,6 +91,60 @@ class TableMaterialUIElement {
       );
       assert.equal(numberRows, rows, "Elementos encontrados en la tabla");
     });
+  }
+
+  verifyColumnName(name) {
+    let found = false;
+    cy.get("tr.MuiTableRow-root.MuiTableRow-head")
+      .children()
+      .each(($child) => {
+        if ($child.text() === name) found = true;
+      })
+      .then(() => {
+        assert.isOk(
+          found,
+          `Se encontró "${name}" como nombre de columna en la tabla`
+        );
+      });
+  }
+
+  clickColumnName(name) {
+    cy.contains("th", name).click();
+    cy.wait(2000);
+  }
+
+  checkOrderColumn(name, orderType) {
+    let ascending = true;
+    let descending = true;
+    // var originalColumnValues = [];
+    cy.wrap(this.createArrayValues(name)).then((array) => {
+      // originalColumnValues = array;
+      for (let i = 1; i < array.length; i++) {
+        if (array[i].toLowerCase() < array[i - 1].toLowerCase())
+          ascending = false;
+
+        if (array[i].toLowerCase() > array[i - 1].toLowerCase())
+          descending = false;
+      }
+
+      if (orderType == "Asc")
+        assert.isOk(ascending, `El ordenamiento es Ascendente`);
+
+      if (orderType == "Des")
+        assert.isOk(descending, `El ordenamiento es Descendente`);
+    });
+  }
+
+  createArrayValues(columnName) {
+    var columnValues = [];
+    cy.contains("th", columnName).then(($thElement) => {
+      var columnIndex = $thElement[0].cellIndex;
+      cy.get("tbody tr").each(($row) => {
+        var cellValue = $row.find(`td:eq(${columnIndex})`).text().trim();
+        columnValues.push(cellValue.toString());
+      });
+    });
+    return columnValues;
   }
 }
 export default TableMaterialUIElement;

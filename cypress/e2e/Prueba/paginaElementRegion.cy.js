@@ -12,6 +12,7 @@ describe("Prueba de Element", () => {
   const tableMaterialUIElement = new TableMateriaUIElement();
 
   it("Probar Region", () => {
+    cy.allure().tag("ET3-230");
     region.goToSite();
     region.clickBtnNewRegion();
 

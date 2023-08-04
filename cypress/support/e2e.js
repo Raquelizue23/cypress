@@ -16,7 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import "./commands";
 import "@shelex/cypress-allure-plugin";
+// import { addTags } from "cypress-tags";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+// addTags();
 require("cypress-xpath");

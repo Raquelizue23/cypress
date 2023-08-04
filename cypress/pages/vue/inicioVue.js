@@ -1,34 +1,39 @@
 class inicioVue {
-    url = "https://crud-firebase-cypress.web.app/spa/#/index";
-    goToSite() {
-        cy.visit(this.url);
-    }
+  url = "https://crud-firebase-cypress.web.app/spa/#/index";
+  goToSite() {
+    cy.visit(this.url);
+  }
 
-    verifySite() {
-        cy.url().should("eq", this.url);
-    }
-    clickBotonMenu() {
-        cy.get("button[aria-page-object='BotonMenu']").click();
-    }
+  verifySite() {
+    cy.url().should("eq", this.url);
+  }
 
-    clickCerrarSesionMenu() {
-        cy.get("button[aria-page-object='CerrarSesionMenu']").click();
-    }
+  verifyValueWelcome(value) {
+    cy.get("span[id='Welcome']").contains(value);
+  }
 
-    clickLinkInicio() {
-        cy.get("a[aria-page-object='LinkInicio']").click();
-    }
+  clickBotonMenu() {
+    cy.get("button[aria-page-object='BotonMenu']").click();
+  }
 
-    clickLinkClients() {
-        cy.get("a[aria-page-object='LinkClients']").click();
-    }
+  clickCerrarSesionMenu() {
+    cy.get("button[aria-page-object='CerrarSesionMenu']").click();
+  }
 
-    clickLinkCatSociedades() {
-        cy.get("a[aria-page-object='LinkCatSociedades']").click();
-    }
+  clickLinkInicio() {
+    cy.get("a[aria-page-object='LinkInicio']").click();
+  }
 
-    clickLinkPruebas() {
-        cy.get("a[aria-page-object='LinkPruebas']").click();
-    }
+  clickLinkClients() {
+    cy.get("a[aria-page-object='LinkClients']").click();
+  }
+
+  clickLinkCatSociedades() {
+    cy.get("a[aria-page-object='LinkCatSociedades']").click();
+  }
+
+  clickLinkPruebas() {
+    cy.get("a[aria-page-object='LinkPruebas']").click();
+  }
 }
 export default inicioVue;
