@@ -6,6 +6,7 @@
     },
     "devDependencies": {
         "@shelex/cypress-allure-plugin": "^2.35.2",
+        "csv-parser": "^3.0.0",
         "cypress": "^10.11.0",
         "cypress-grep": "^3.0.4",
         "cypress-xpath": "^2.0.1",

@@ -1,6 +1,6 @@
-import { log } from "console";
-
 class TableMaterialUIElement {
+  columnValues = [];
+
   clickMenuRow(row) {
     cy.contains("td", row).prev().click();
   }
@@ -94,17 +94,47 @@ class TableMaterialUIElement {
   }
 
   verifyColumnName(name) {
-    let found = false;
+    //Este codigo tambien funciona, pero por alguna razón no jala para el ambiente que usan los testers de element
+    // let found = false;
+    // cy.get("tr.MuiTableRow-root.MuiTableRow-head")
+    //   .children()
+    //   .each(($child) => {
+    //     if ($child.text() === name) found = true;
+    //   })
+    //   .then(() => {
+    //     assert.isOk(
+    //       found,
+    //       `Se encontró "${name}" como nombre de columna en la tabla`
+    //     );
+    //   });
+
+    //este codigo es el que funciona para Element, el de arriba no, y quien sabe por que
+    const columnNames = [];
+
     cy.get("tr.MuiTableRow-root.MuiTableRow-head")
       .children()
       .each(($child) => {
-        if ($child.text() === name) found = true;
+        columnNames.push($child.text().trim());
       })
       .then(() => {
-        assert.isOk(
+        const found = columnNames.includes(name);
+        assert.isTrue(
           found,
           `Se encontró "${name}" como nombre de columna en la tabla`
         );
+      });
+  }
+
+  verifyColumnNoExist(name) {
+    const columnNames = [];
+    cy.get("tr.MuiTableRow-root.MuiTableRow-head")
+      .children()
+      .each(($child) => {
+        columnNames.push($child.text().trim());
+      })
+      .then(() => {
+        const found = columnNames.includes(name);
+        assert.isFalse(found, `No se encontró la columna "${name}"`);
       });
   }
 
@@ -145,6 +175,84 @@ class TableMaterialUIElement {
       });
     });
     return columnValues;
+  }
+
+  clickCalendarDay(dayNumber) {
+    cy.get('.MuiPickersDay-day[tabindex="0"]').contains("p", dayNumber).click();
+  }
+
+  checkNumberInColumn(columnName, data) {
+    this.checkDataInColumn(columnName, data, "number");
+  }
+  checkRangeDateInColumn(columnName, data) {
+    this.checkDataInColumn(columnName, data, "date");
+  }
+
+  checkDataInColumn(columnName, data, type) {
+    cy.contains("th", columnName).then(($thElement) => {
+      const columnIndex = $thElement[0].cellIndex;
+      cy.get("tbody tr").each(($row) => {
+        const cellValue = $row.find(`td:eq(${columnIndex})`).text().trim();
+        this.columnValues.push(cellValue);
+      });
+    });
+
+    cy.xpath(
+      "//*[@id='root']/div[3]/div[1]/div/div[3]/div/div/div[3]/div[1]/div[2]/div/p"
+    )
+      .invoke("text")
+      .then((paginatorText) => {
+        const content = paginatorText.trim();
+        const lastPage = this.verifyStringToPagination(content);
+        if (lastPage == false) {
+          cy.xpath(
+            '//*[@id="TableContainerElement"]/following-sibling::div/div[1]/div[3]/div/div[2]/button[1]/span[2]'
+          ).click({ force: true });
+          this.checkDataInColumn(columnName, data, type);
+        } else {
+          this.verifyData(data, type);
+        }
+      });
+  }
+
+  verifyStringToPagination(cadena) {
+    let lastPage = false;
+    const part = cadena.split(" ");
+    if (part[0].split("-")[1] === part[2]) lastPage = true;
+    return lastPage;
+  }
+
+  verifyData(data, type) {
+    if (type === "number") {
+      const numberOk = this.columnValues.every((item) => item.includes(data));
+      assert.isOk(
+        numberOk,
+        `El numero "${data}" se encontró en todas las filas de la columna`
+      );
+    } else {
+      this.columnValues = ["02/08/2023", "04/08/2023", "10/08/2023"];
+      let allDateInRange = true;
+      for (const date of this.columnValues) {
+        const dateParts = date.split("/");
+        const reverseDate =
+          dateParts[2] + "/" + dateParts[1] + "/" + dateParts[0];
+        if (!this.getDateInRange(data[0], data[1], reverseDate)) {
+          allDateInRange = false;
+          break;
+        }
+      }
+      assert.isOk(
+        allDateInRange,
+        `Todas las fechas de la columna están en el rango del "${data[0]}" y del "${data[1]}"`
+      );
+    }
+  }
+
+  getDateInRange(sDate, eDate, dt) {
+    const startDate = new Date(sDate);
+    const endDate = new Date(eDate);
+    const date = new Date(dt);
+    return date >= startDate && date <= endDate;
   }
 }
 export default TableMaterialUIElement;
