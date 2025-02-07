@@ -246,6 +246,7 @@ class TableMaterialUIElement {
         `Todas las fechas de la columna están en el rango del "${data[0]}" y del "${data[1]}"`
       );
     }
+    this.columnValues = [];
   }
 
   getDateInRange(sDate, eDate, dt) {
@@ -254,5 +255,10 @@ class TableMaterialUIElement {
     const date = new Date(dt);
     return date >= startDate && date <= endDate;
   }
+
+  //  method to test that the words "No se encontró una factura XML" exist in the following element of cypress cy.get('.jss456 > .MuiBox-root > .MuiTypography-root')
+  // verifyNoXmlFound() {
+  //   cy.get('.jss456 > .MuiBox-root > .MuiTypography-root').should('contain','No se encontró una factura XML')
+  // //create an assert
 }
 export default TableMaterialUIElement;

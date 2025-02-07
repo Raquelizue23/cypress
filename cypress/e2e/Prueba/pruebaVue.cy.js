@@ -26,9 +26,9 @@ describe("Prueba de Vue", () => {
     // cy.allureScreenshot();
     login.setValueEmail("test@test.com");
     //Con esta instrucción se ve el runner con la pantalla
-    cy.screenshot({
-      capture: "runner",
-    });
+    // cy.screenshot({
+    //   capture: "runner",
+    // });
     login.setValuePassword("123456");
     //Con esta instrucción no se ve el runner
     cy.screenshot();
@@ -66,6 +66,13 @@ describe("Prueba de Vue", () => {
 
     clientes.clickBtnDeleteASDF4321();
     borrarCliente.clickOkBorrar();
+  });
+
+  it("Probar CatSociedades", () => {
+    cy.wait(3000);
+    inicio.verifyValueWelcome("Bienvenido");
+    inicio.clickBotonMenu();
+    inicio.clickLinkCatSociedades();
   });
 
   afterEach(() => {

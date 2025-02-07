@@ -35,7 +35,8 @@ class clientesVue {
   }
 
   clickCerrarSesionMenu() {
-    cy.get("button[aria-page-object='CerrarSesionMenu']").click();
+    // cy.get("button[aria-page-object='CerrarSesionMenu']").click();
+    cy.xpath('//*[@id="q-app"]/div/header/div[1]/button[2]').click();
   }
 
   clickAgregarCliente() {
